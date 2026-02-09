@@ -27,7 +27,7 @@ Located in the `scripts/` folder for both Windows and Linux.
 
 ## Usage
 
-The `stacks/` directory contains project folders. Each one includes a `docker-compose.yaml`. Some may also have a `Dockerfile` for custom builds or a `.env.example` for secrets.
+The `stacks/` directory contains project folders. Each one includes a `docker-compose.yaml`. Some may also have a `Dockerfile` for custom builds or a `.env.example` for environment variables like secrets.
 
 1. **Move into** the desired project folder (e.g., `cd stacks/app-one`).
 2. If a `.env.example` exists, rename it to `.env` and add your specific keys.
