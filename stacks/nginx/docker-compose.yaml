@@ -1,0 +1,11 @@
+name: web
+services:
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - "${HOST_EXPOSURE:-127.0.0.1:80}:80"
+    volumes:
+      - ${WWW_PATH}:/usr/share/nginx/html:ro
+      - ${NGINX_CONF}:/etc/nginx/conf.d/default.conf:ro
