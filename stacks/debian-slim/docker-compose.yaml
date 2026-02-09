@@ -1,0 +1,7 @@
+name: linux
+services:
+    debian:
+        image: debian:bookworm-slim
+        command: tail -f /dev/null
+        volumes:
+            - ./shared:/mnt/shared
