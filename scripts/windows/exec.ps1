@@ -1,6 +1,7 @@
-$containers = docker ps --format "{{.Names}}" | Where-Object { $_ -ne "" }
+$rawOutput = docker ps --format "{{.Names}}"
+$containers = @($rawOutput -split '\r?\n' | Where-Object { $_ -match '\S' })
 
-if (-not $containers) {
+if (-not $containers -or $containers.Count -eq 0) {
     Write-Host "No running containers found." -ForegroundColor Red
     exit
 }
@@ -10,9 +11,9 @@ for ($i = 0; $i -lt $containers.Count; $i++) {
     Write-Host "[$i] $($containers[$i])"
 }
 
-$idx = Read-Host "Enter index"
+[int]$idx = Read-Host "Enter index"
 
-if ($containers[$idx]) {
+if ($idx -ge 0 -and $idx -lt $containers.Count) {
     Write-Host "Attaching to $($containers[$idx])..."
     docker exec -it $containers[$idx] sh
 } else {
