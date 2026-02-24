@@ -28,7 +28,7 @@ Located in the `scripts/` folder for both Windows and Linux.
 
 ## Usage
 
-1. **Move into** the desired project folder (e.g., `cd stacks/app-one`).
+1. **Move into** the desired project folder (e.g., `cd stacks/app/`).
 2. If a `.env.example` exists, rename it to `.env` and add your specific keys.
 3. Run the project:
 ```bash
