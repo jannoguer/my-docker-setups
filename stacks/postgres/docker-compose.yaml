@@ -1,7 +1,7 @@
 name: postgres
 services:
   postgres:
-    image: postgres
+    image: postgres:bookworm
     container_name: db
     restart: always
     ports:
