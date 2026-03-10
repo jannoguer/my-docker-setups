@@ -1,0 +1,15 @@
+name: python
+services:
+  python:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: python
+    
+    volumes:
+      - ./app:/app
+
+    develop:  # Use `docker compose watch` to compile the image with hot reload.
+      watch:
+        - action: restart
+          path: ./app
